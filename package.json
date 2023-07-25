@@ -1,0 +1,70 @@
+{
+  "name": "typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "Typescript and Node boilerplate template developer ready 🚀 to get started quickly with all basic tools included and configured.",
+  "main": "build/index.js",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "prepare": "npm run build",
+    "prestart": "npm run build",
+    "start": "node build/index.js",
+    "build": "npm run lint && npm test && tsc",
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage",
+    "test:watch": "npm test -- --watchAll",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "npm run lint -- --fix",
+    "dependencies:purge": "rm -rf node_modules package-lock.json build && npm install",
+    "docs:generate": "auto-changelog -p; rm -rf docs && typedoc lib/ --plugin typedoc-plugin-markdown --out docs && git add CHANGELOG.md",
+    "docs:update": "npm run docs:generate && git commit -m \"📝 update docs\"",
+    "docs:generate:html": "auto-changelog -p; rm -rf docs-html && typedoc lib/ --plugin none --out docs-html && git add CHANGELOG.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franciscomesa/typescript-boilerplate"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "node",
+    "boilerplate",
+    "jest",
+    "nodejs",
+    "eslint",
+    "template",
+    "starter-template",
+    "nodejs-cli",
+    "typescript-boilerplate",
+    "node-typescript-boilerplate",
+    "node-boilerplate",
+    "backend"
+  ],
+  "author": "Francisco Mesa <franciscomesa@gmail.com> (https://franciscomesa.es)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/franciscomesa/typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/franciscomesa/typescript-boilerplate#readme",
+  "dependencies": {
+    "@types/node": "^16.4.2",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "auto-changelog": "^2.3.0",
+    "eslint": "^7.31.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typedoc": "^0.24.0",
+    "typedoc-plugin-markdown": "^3.10.4"
+  },
+  "auto-changelog": {
+    "commitLimit": false,
+    "unreleased": true,
+    "sortCommits": "date-desc"
+  }
+}
