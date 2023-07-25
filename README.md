@@ -1,8 +1,14 @@
-# typescript-boilerplate
-Typescript and Node boilerplate template developer ready 🚀 to get started quickly with all basic tools included and configured.
+# Smallest String kata
+Find the smallest substring of the first input field that includes all characters provided in the second field  (no duplicated characters allowed in the second field).
+
+*Example:*
+- Input string: "TDD development rocks"
+- Characters to match: "eo"
+- Output of function: "elo"
 
 
-## 🧑‍🔬 Basic tools included and preconfigured to be used
+
+## 🧑‍🔬 Basic tools included
 - [Typescript 4](https://www.typescriptlang.org/)
 - [Jest 29](https://jestjs.io/docs/getting-started) testing
 - Type definitions for Node.js and Jest
@@ -19,7 +25,7 @@ This project is designed to be used with the latest LTS version of Node.js.
 
 Clone the repository:
 ```bash
-git clone https://github.com/franciscomesa/typescript-boilerplate.git your_local_project_name
+git clone https://github.com/franciscomesa/smallestString.git your_local_project_name
 
 cd your_local_project_name
 ```
