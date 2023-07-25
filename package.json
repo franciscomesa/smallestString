@@ -1,7 +1,7 @@
 {
-  "name": "typescript-boilerplate",
+  "name": "smallest-string",
   "version": "1.0.0",
-  "description": "Typescript and Node boilerplate template developer ready 🚀 to get started quickly with all basic tools included and configured.",
+  "description": "Find the smallest substring of the first input field.",
   "main": "build/index.js",
   "files": [
     "build"
