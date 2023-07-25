@@ -11,14 +11,26 @@ function findSmallestSubstring(inputString: string, characters: string): string 
   const sortPositions = (a: number, b: number) => a - b
   const firstCharacter = charactersPositions.sort(sortPositions)[0]
   const secondCharacter = charactersPositions.sort(sortPositions).reverse()[0]
+  const longestSubstring = inputString.substring(firstCharacter, secondCharacter + 1)
 
-  const temporalResult = inputString.substring(firstCharacter, secondCharacter + 1)
-  const lastApparitionOfFirstCharacter = temporalResult.lastIndexOf(characters[0])
-  return lastApparitionOfFirstCharacter === -1
-    ? inputString.substring(firstCharacter, secondCharacter + 1)
-    : temporalResult.substring(lastApparitionOfFirstCharacter)
+  let trimmedLeftInputString = longestSubstring
+  for (let currentIndex = 1; currentIndex < longestSubstring.length; currentIndex++) {
+    const tryWithRightSubString = findSmallestSubstring(longestSubstring.substring(currentIndex), characters);
+    if (tryWithRightSubString !== undefined && tryWithRightSubString !== '') {
+      trimmedLeftInputString = tryWithRightSubString;
+      break;
+    }
+  }
+  let fullTrimmedInputString = trimmedLeftInputString
+  for (let currentIndex = longestSubstring.length - 1; currentIndex > 0; currentIndex--) {
+    const tryWithLeftSubString = findSmallestSubstring(trimmedLeftInputString.substring(currentIndex), characters);
+    if (tryWithLeftSubString !== undefined && tryWithLeftSubString !== '') {
+      fullTrimmedInputString = tryWithLeftSubString;
+      break;
+    }
+  }
 
-  return undefined
+  return fullTrimmedInputString
 }
 
 describe('Smallest string function should', () => {
@@ -46,6 +58,10 @@ describe('Smallest string function should', () => {
 
   it('detect the shortest substring with three characters', () => {
     expect(findSmallestSubstring(firstInputString, 'eto')).toBe('opment')
+  })
+
+  it('detect the shortest substring with three characters and ', () => {
+    expect(findSmallestSubstring(firstInputString, 'elo')).toBe('elo')
   })
 
 })
