@@ -1,6 +1,9 @@
 function findSmallestSubstring(inputString: string, characters: string): string | void {
   if (characters === '')
     return ''
+  if (characters.length === 1)
+    return inputString.charAt(inputString.indexOf(characters))
+
   return undefined
 }
 
@@ -11,8 +14,8 @@ describe('Smallest string function should', () => {
     expect(findSmallestSubstring(firstInputString, '')).toBe('')
   })
 
-  it ('return first occurrence if characters has only one character', () => {
-    expect(findSmallestSubstring(firstInputString, 'a')).toBe('a')
+  it ('return the occurrence if characters has only one character', () => {
+    expect(findSmallestSubstring(firstInputString, 'e')).toBe('e')
   })
 
 })
