@@ -8,8 +8,9 @@ function findSmallestSubstring(inputString: string, characters: string): string 
   if (charactersPositions.find(position => position === -1))
     return undefined
 
-  const firstCharacter = inputString.indexOf(characters[0])
-  const secondCharacter = inputString.indexOf(characters[1], firstCharacter)
+  const sortPositions = (a: number, b: number) => a - b
+  const firstCharacter = charactersPositions.sort(sortPositions)[0]
+  const secondCharacter = charactersPositions.sort(sortPositions).reverse()[0]
 
   const temporalResult = inputString.substring(firstCharacter, secondCharacter + 1)
   const lastApparitionOfFirstCharacter = temporalResult.lastIndexOf(characters[0])
