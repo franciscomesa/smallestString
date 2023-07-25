@@ -33,7 +33,11 @@ describe('Smallest string function should', () => {
     expect(findSmallestSubstring(firstInputString, 'a')).toBe(undefined)
   })
 
-  it('detect a substring with two characters', () => {
+  it('detect the shortest substring with two characters', () => {
     expect(findSmallestSubstring(firstInputString, 'eo')).toBe('elo')
+  })
+
+  it('detect the shortest substring with two characters if it is at the end of the string', () => {
+    expect(findSmallestSubstring(firstInputString, 'es')).toBe('ent rocks')
   })
 })
