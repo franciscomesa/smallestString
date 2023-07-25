@@ -18,4 +18,7 @@ describe('Smallest string function should', () => {
     expect(findSmallestSubstring(firstInputString, 'e')).toBe('e')
   })
 
+  it ('return undefined if characters has only one character and is not present', () => {
+    expect(findSmallestSubstring(firstInputString, 'a')).toBe('undefined')
+  })
 })
