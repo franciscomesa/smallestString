@@ -4,6 +4,17 @@ function findSmallestSubstring(inputString: string, characters: string): string 
   if (characters.length === 1 && inputString.indexOf(characters) !== -1)
     return inputString.charAt(inputString.indexOf(characters))
 
+  const firstCharacter = inputString.indexOf(characters[0])
+  const secondCharacter = inputString.indexOf(characters[1], firstCharacter)
+
+  if (firstCharacter !== -1 && secondCharacter !== -1) {
+    const temporalResult = inputString.substring(firstCharacter, secondCharacter + 1)
+    const lastApparitionOfFirstCharacter = temporalResult.lastIndexOf(characters[0])
+    return lastApparitionOfFirstCharacter === -1
+      ? inputString.substring(firstCharacter, secondCharacter + 1)
+      : temporalResult.substring(lastApparitionOfFirstCharacter)
+  }
+
   return undefined
 }
 
