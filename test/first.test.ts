@@ -1,7 +1,10 @@
-describe('Initial test suit', () => {
-  it('Simple add', () => {
-    const expectedValue = 2
+function findSmallestSubstring(inputString: string, characters: string): string | void {
+  return undefined
+}
 
-    expect(1+1).toBe(expectedValue)
+describe('Smallest string function should', () => {
+  const firstInputString = 'TDD development rocks'
+  it('return empty string if characters is empty', () => {
+    expect(findSmallestSubstring(firstInputString, '')).toBe('')
   })
 })
