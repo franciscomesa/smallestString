@@ -40,4 +40,9 @@ describe('Smallest string function should', () => {
   it('detect the shortest substring with two characters if it is at the end of the string', () => {
     expect(findSmallestSubstring(firstInputString, 'es')).toBe('ent rocks')
   })
+
+  it('detect the shortest substring with three characters', () => {
+    expect(findSmallestSubstring(firstInputString, 'eto')).toBe('opment')
+  })
+
 })
