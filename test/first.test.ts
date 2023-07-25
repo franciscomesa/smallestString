@@ -1,4 +1,6 @@
 function findSmallestSubstring(inputString: string, characters: string): string | void {
+  if (characters === '')
+    return ''
   return undefined
 }
 
